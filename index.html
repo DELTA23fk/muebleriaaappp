@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!----------------------------------- Page 1-------------------------->
+    <div data-role="page" id="p1">
+        <div data-role="header" data-position="fixed">
+            <h1>Muebleria</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#p1">Inicio</a></li>
+                    <li><a href="#p2">Producto</a></li>
+                    <li><a href="#p3">Sucursales</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <img src="img/logo.jpg" width="100%">
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h1>Copyrigyt© 2023 Mueblería Furniture&copy; 2023</h1>
+        </div>
+    </div>
+    <!-------------------------Page 2-------------------------------->
+    <div data-role="page" id="p2">
+        <div data-role="header" data-position="fixed">
+            <h1>Producto</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#p1">Inicio</a></li>
+                    <li><a href="#p2">Producto</a></li>
+                    <li><a href="#p3">Sucursales</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview">
+
+            <?php 
+								include 'conexion.php';								
+								$sql = " SELECT * FROM productos ";
+								if (!$con) {
+									die("Connection failed: " . mysqli_connect_error());
+								}
+								$result = mysqli_query($con, $sql);
+								if (mysqli_num_rows($result) > 0) 
+								{
+									while($row = mysqli_fetch_assoc($result)) 
+									{
+                                        $nombre   = $row['nombre'];
+                                        $descripcion = $row['descripcion'];
+                                        $imagen = $row['imagen'];
+                
+                
+                                        echo "
+                                            <li>
+                                            <a href='#'>
+                                                <img src='$imagen'>
+                                                <h3>$nombre</h3>
+                                                <p>$descripcion</p>
+                                            </a>
+                                        </li>";
+									}
+								} 
+								?>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h1>Copyrigyt© 2023 Mueblería Furniture&copy; 2023</h1>
+        </div>
+    </div>
+    <!------------------------------------------Page 3-------------------------------------------------->
+    <div data-role="page" id="p3">
+        <div data-role="header" data-position="fixed">
+            <h1>Sucursales</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#p1">Inicio</a></li>
+                    <li><a href="#p2">Producto</a></li>
+                    <li><a href="#p3">Sucursales</a></li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <div data-role="content">
+            <h1>Sucursal Federalismo Centro</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!4v1675995328276!6m8!1m7!1slXLTFt_QUt3RgA9K9fMITQ!2m2!1d20.6678837596492!2d-103.3551830061875!3f268.62752751382925!4f8.468560185061094!5f1.8891320825936635" width="100%"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div data-role="footer" data-position="fixed">
+                <h1>Copyrigyt© 2023 Mueblería Furniture&copy; 2023</h1>
+            </div>
+        </div>
+        <div data-role="content">
+            <h1>Sucursal Federalismo Sur</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!4v1675995466059!6m8!1m7!1s6nNHyw3OogUtKCQX38fP1Q!2m2!1d20.67082602723533!2d-103.3548369162727!3f250.70007814970296!4f9.086056304438955!5f0.7820865974627469" width="100%"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div data-role="footer" data-position="fixed">
+                <h1>Copyrigyt© 2023 Mueblería Furniture&copy; 2023</h1>
+            </div>
+        </div>
+        <div data-role="content">
+            <h1>Sucursal Vallarta</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!4v1675995560820!6m8!1m7!1sqBGn_maCkYzbXz7BwBz5VA!2m2!1d20.67441817602117!2d-103.3738217834694!3f217.78682809132795!4f2.7620041336314216!5f0.7820865974627469" width="100%"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div data-role="footer" data-position="fixed">
+                <h1>Copyrigyt© 2023 Mueblería Furniture&copy; 2023</h1>
+            </div>
+        </div>
+        <div data-role="content">
+            <h1>Sucursal Federalismo Sur</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!4v1675995632326!6m8!1m7!1s-WlxgNxCfVJfGOBcdmKY6Q!2m2!1d20.66536880959424!2d-103.3544123030423!3f13.642044187673129!4f6.148059017920701!5f0.7820865974627469" width="100%"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div data-role="footer" data-position="fixed">
+                <h1>Copyrigyt© 2023 Mueblería Furniture&copy; 2023</h1>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+
+</html>
+</html>
